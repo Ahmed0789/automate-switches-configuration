@@ -1,0 +1,9 @@
+- hosts: cisco_switches
+  gather_facts: no
+  tasks:
+    - name: Apply Configuration Template
+      cisco.ios.ios_config:
+        lines:
+          - hostname ConfiguredSwitch
+          - interface GigabitEthernet0/1
+          - description Configured via Automation

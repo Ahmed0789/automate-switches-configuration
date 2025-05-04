@@ -1,0 +1,17 @@
+- hosts: core_switch
+  gather_facts: no
+  tasks:
+    - name: Discover connected switches
+      cisco.ios.ios_command:
+        commands:
+          - "show cdp neighbors detail"
+      register: switch_discovery
+
+    - name: Extract IP addresses
+      set_fact:
+        switch_ips: "{{ switch_discovery.stdout | regex_findall('\\d+\\.\\d+\\.\\d+\\.\\d+') }}"
+
+    - name: Save discovered switches
+      copy:
+        content: "{{ switch_ips | to_json }}"
+        dest: /tmp/discovered_switches.json
