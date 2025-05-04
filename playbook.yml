@@ -1,0 +1,6 @@
+- name: Test Switch Connectivity
+  hosts: switches
+  gather_facts: false
+  tasks:
+    - name: Check switch status
+      ansible.builtin.ping:

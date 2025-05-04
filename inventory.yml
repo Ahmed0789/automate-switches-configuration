@@ -1,0 +1,17 @@
+all:
+  hosts:
+    switch1:
+      ansible_host: 192.168.1.101
+      ansible_user: admin
+      ansible_password: password_here
+      ansible_network_os: cisco_ios
+    switch2:
+      ansible_host: 192.168.1.102
+      ansible_user: admin
+      ansible_password: password_here
+      ansible_network_os: cisco_ios
+  children:
+    switches:
+      hosts:
+        switch1:
+        switch2:
