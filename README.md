@@ -1,7 +1,7 @@
 # automate-switches-configuration
 
 ### **Step 1: Installing Ansible & Python on the Controller**
-If your controller runs Linux (preferably a server distro like Ubuntu or CentOS), installing Ansible and Python is straightforward.
+If your controller runs Linux (preferably a server distro like Unix / Debian), installing Ansible and Python is straightforward.
 
 1. **Update Packages:**
    ```bash
